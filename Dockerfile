@@ -1,6 +1,5 @@
-FROM php:7.4-stretch
+FROM php:7.4.1-fpm-alpine
 
-RUN apt-get update -yqq
+RUN apk update && apk add curl-dev zlib-dev icu-dev libpng-dev g++ git unzip libzip-dev bzip2-dev libxml2-dev openssl-dev gettext-dev gmp-dev imap-dev oniguruma-dev libedit-dev libcurl bash openssh-client
 
-RUN apt-get install zlib1g-dev libicu-dev libpng-dev g++ git unzip -yqq
-RUN docker-php-ext-install intl gd zip exif
+RUN docker-php-ext-install bcmath bz2 calendar exif gd gettext gmp imap soap sockets sysvsem sysvshm xmlrpc zip
